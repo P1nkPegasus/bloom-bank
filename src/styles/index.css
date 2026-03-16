@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+  background: #0f0c08;
+  color: #e8dfc8;
+}
+
+:root {
+  --color-bg: #0f0c08;
+  --color-bg-card: #12100a;
+  --color-gold: #c8a86a;
+  --color-gold-light: #d4b87a;
+  --color-text: #e8dfc8;
+  --color-muted: #a09070;
+  --color-faint: #605848;
+  --color-stem: #4a7c59;
+  --color-leaf: #3d6b4a;
+  --font-display: 'Kirang Haerang', 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-body:
+    'Kirang Haerang', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial',
+    sans-serif;
+  --radius: 4px;
+  --transition: 0.2s ease;
+}
