@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { getRandomFlower } from '../data/flowers';
 
+const getUniqueFlower = (existingGoals) => {
+  const lastFlower = existingGoals.at(-1)?.flowerType?.name;
+  let flower = getRandomFlower();
+  let attempts = 0;
+  while (flower.name === lastFlower && attempts < 10) {
+    flower = getRandomFlower();
+    attempts++;
+  }
+  return flower;
+};
+
 export const useGoals = () => {
   const [goals, setGoals] = useState([]);
 
@@ -9,8 +20,8 @@ export const useGoals = () => {
     const newGoal = {
       id: Date.now(),
       name: name.trim(),
-      progress: 5,
-      flowerType: getRandomFlower(),
+      progress: 0,
+      flowerType: getUniqueFlower(goals),
       createdAt: new Date().toISOString(),
     };
     setGoals((prevGoals) => [...prevGoals, newGoal]);
@@ -23,7 +34,7 @@ export const useGoals = () => {
   const incrementProgress = (id) => {
     setGoals((prevGoals) =>
       prevGoals.map((goal) =>
-        goal.id === id ? { ...goal, progress: Math.min(goal.progress + 1, 10) } : goal
+        goal.id === id ? { ...goal, progress: Math.min(goal.progress + 25, 100) } : goal
       )
     );
   };

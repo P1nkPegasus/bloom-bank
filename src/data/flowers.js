@@ -67,3 +67,7 @@ export const FLOWER_TYPERS = [
 export const getRandomFlower = () => {
   return FLOWER_TYPERS[Math.floor(Math.random() * FLOWER_TYPERS.length)];
 };
+
+export const getFlowerByName = (name) => {
+  return FLOWER_TYPERS.find((flower) => flower.name === name) ?? FLOWER_TYPERS[0];
+};
